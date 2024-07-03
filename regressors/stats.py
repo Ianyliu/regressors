@@ -47,7 +47,7 @@ def residuals(clf, X, y, r_type='standardized'):
     # Make sure value of parameter 'r_type' is one we recognize
     assert r_type in ('raw', 'standardized', 'studentized'), (
         "Invalid option for 'r_type': {0}".format(r_type))
-    y_true = y.view(dtype='float')
+    y_true = y.astype(np.float32).copy()
     # Use classifier to make predictions
     y_pred = clf.predict(X)
     # Make sure dimensions agree (Numpy still allows subtraction if they don't)
