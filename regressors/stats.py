@@ -251,7 +251,7 @@ def summary(clf, X, y, xlabels=None):
     )
     try:
         coef_df['Estimate'] = np.concatenate(
-            (np.round(np.array([clf.intercept_]), 6), np.round((clf.coef_), 6))
+            (np.round(np.array([clf.intercept_]), 6), np.round((clf.coef_), 6)))
     except Exception as e:
         coef_df['Estimate'] = np.concatenate(
             (
@@ -282,5 +282,3 @@ def summary(clf, X, y, xlabels=None):
         metrics.r2_score(y, clf.predict(X)), adj_r2_score(clf, X, y)))
     print('F-statistic: {0:.2f} on {1} features'.format(
         f_stat(clf, X, y), ncols))
-
-
